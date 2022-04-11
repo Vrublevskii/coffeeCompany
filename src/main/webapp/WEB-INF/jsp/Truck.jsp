@@ -50,7 +50,7 @@
 </table>
 
 <form method="get">
-    <input type="submit" value="SortCargo" name="sort">
+    <input type="submit" value="SortCargo" name="sortCollection">
 </form>
 
 <a href='http://localhost:8080/coffeeCompany/coffeecompany'>back</a>

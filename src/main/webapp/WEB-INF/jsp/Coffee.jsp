@@ -12,10 +12,13 @@
 </head>
 <body>
 <h1>Coffee</h1>
-<%!List<Coffee> coffees = new ArrayList<>();%>
+<%--<%!List<Coffee> coffees = new ArrayList<>();%>--%>
 <% User user = (User) session.getAttribute("companyUser");
+    List<Coffee> coffees = (ArrayList<Coffee>) session.getAttribute("coffees");
     String name = user.getName();
-    session.setAttribute("coffees", coffees);
+//    if (session.getAttribute("coffees") == null){
+//        session.setAttribute("coffees", coffees);
+//    }
     String sort = request.getParameter("sort");;
     double price = 0;
     String container = null;
@@ -115,8 +118,9 @@
     <%!String container1;%>
     <%!int weight1;%>
 
-<%--     List<Coffee> coffees = (ArrayList<Coffee>) session.getAttribute("coffees");--%>
-    <% if (coffees != null) {
+<%--     --%>
+    <%
+        if (coffees != null) {
             for (Coffee coffee : coffees) {
                 sort1 = coffee.getSort();
                 price1 = coffee.getPriceTotal();

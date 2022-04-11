@@ -15,7 +15,7 @@ public class TruckServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String sort = req.getParameter("sort");
+        String sort = req.getParameter("sortCollection");
         if (sort != null){
             HttpSession session = req.getSession();
             List<Coffee> coffees = (List<Coffee>) session.getAttribute("coffees");

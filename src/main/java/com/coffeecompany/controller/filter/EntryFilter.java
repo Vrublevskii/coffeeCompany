@@ -2,12 +2,14 @@ package com.coffeecompany.controller.filter;
 
 import com.coffeecompany.data.UserData;
 import com.coffeecompany.entities.User;
+import com.coffeecompany.entities.coffee.Coffee;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -38,6 +40,10 @@ public class EntryFilter implements Filter {
         }
 
         if (session.getAttribute("companyUser") != null) {
+            if (session.getAttribute("coffees") == null) {
+                ArrayList<Coffee> coffees = new ArrayList<>();
+                session.setAttribute("coffees", coffees);
+            }
             response.sendRedirect("http://localhost:8080/coffeeCompany/coffeecompany");
         } else {
             filterChain.doFilter(servletRequest, servletResponse);
